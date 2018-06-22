@@ -23,13 +23,14 @@ class Frserver extends JFrame {
 		setTitle("채팅창 서버!");
 		setLayout(new BorderLayout());
 
-		JLabel label = new JLabel("This is a server!");
+		JLabel label = new JLabel("입력하세요");
 		ta = new JTextArea(25, 40);
 		tf = new JTextField(25);
 
 		add(label, BorderLayout.NORTH);
 		add(ta, BorderLayout.CENTER);
 		add(tf, BorderLayout.SOUTH);
+		setVisible(true);
 	}
 }
 
@@ -52,8 +53,8 @@ public class GuiMultiChat_TcpServer {
 		ServerSocket serverSocket = null;
 		Socket socket = null;
 
-		try {
-			serverSocket = new ServerSocket(7777);
+		try {	
+			serverSocket=new ServerSocket(8888);
 			System.out.println("서버가 시작되었다");
 
 			while (true) {

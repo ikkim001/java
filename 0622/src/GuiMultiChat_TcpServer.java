@@ -53,8 +53,8 @@ public class GuiMultiChat_TcpServer {
 		ServerSocket serverSocket = null;
 		Socket socket = null;
 
-		try {	
-			serverSocket=new ServerSocket(8888);
+		try {
+			serverSocket = new ServerSocket(8888);
 			System.out.println("서버가 시작되었다");
 
 			while (true) {

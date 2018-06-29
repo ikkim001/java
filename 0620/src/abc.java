@@ -4,8 +4,6 @@ import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
 
- 
-
 import javax.swing.BoxLayout;
 
 import javax.swing.JButton;
@@ -22,15 +20,11 @@ import javax.swing.JTextField;
 
 import javax.swing.table.DefaultTableModel;
 
- 
-
 public class abc {
 
- 
+	static class mygui extends JFrame {
 
-	static class mygui extends JFrame{
-
-		mygui(){
+		mygui() {
 
 			JPanel panel = new JPanel();
 
@@ -46,37 +40,27 @@ public class abc {
 
 			setTitle("제목");
 
-			
+			setSize(400, 300);
 
-			setSize(400,300);
+			String tabel[] = { "이름", "국어", "수학", "영어" };
 
-			
+			String num[][] = {
 
-			
+					{ "a", "b", "c", "d" },
 
-		String tabel[]={"이름","국어","수학","영어"};
+					{ "a", "b", "c", "d" },
 
-		String num[][]={
+					{ "a", "b", "c", "d" },
 
-				{"a","b","c","d"},
+			};
 
-				{"a","b","c","d"},
+			DefaultTableModel model = new DefaultTableModel(num, tabel);
 
-				{"a","b","c","d"},
+			JTable table1 = new JTable(model);
 
-		};
+			JScrollPane scp = new JScrollPane(table1);
 
-		DefaultTableModel model=new DefaultTableModel(num, tabel);
-
-		JTable table1=new JTable(model);
-
-		JScrollPane scp=new JScrollPane(table1);
-
-		
-
-		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-
-	  
+			panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 
 			JTextField label1 = new JTextField(3);
 
@@ -86,8 +70,6 @@ public class abc {
 
 			JTextField label4 = new JTextField(3);
 
-		
-
 			panel.add(label1);
 
 			panel.add(label2);
@@ -96,13 +78,9 @@ public class abc {
 
 			panel.add(label4);
 
-			
-
 			JButton button1 = new JButton("저장");
 
 			button1.addActionListener(new ActionListener() {
-
-				
 
 				@Override
 
@@ -110,39 +88,33 @@ public class abc {
 
 					// TODO Auto-generated method stub
 
-					String str[]=new String[4];
+					String str[] = new String[4];
 
-					
+					str[0] = label1.getText();
 
-					str[0]=label1.getText();
+					str[1] = label2.getText();
 
-					str[1]=label2.getText();
+					str[2] = label3.getText();
 
-					str[2]=label3.getText();
+					str[3] = label4.getText();
 
-					str[3]=label4.getText();
+					model.addRow(str);
 
-				model.addRow(str);
+					label1.setText("");
 
-					
+					label2.setText("");
 
-				label1.setText("");
+					label3.setText("");
 
-				label2.setText("");
-
-				label3.setText("");
-
-				label4.setText("");
+					label4.setText("");
 
 				}
 
 			});
 
-			JButton dbutton=new JButton("삭제");
+			JButton dbutton = new JButton("삭제");
 
 			dbutton.addActionListener(new ActionListener() {
-
-				
 
 				@Override
 
@@ -150,7 +122,7 @@ public class abc {
 
 					// TODO Auto-generated method stub
 
-					if(table1.getSelectedRow()==-1)
+					if (table1.getSelectedRow() == -1)
 
 					{
 
@@ -158,7 +130,7 @@ public class abc {
 
 					}
 
-					else{
+					else {
 
 						model.removeRow(table1.getSelectedRow());
 
@@ -168,43 +140,28 @@ public class abc {
 
 			});
 
-			
-
 			panel.add(button1);
 
 			panel.add(dbutton);
 
-			add(scp,BorderLayout.CENTER);
+			add(scp, BorderLayout.CENTER);
 
-			add(panel,BorderLayout.SOUTH);
+			add(panel, BorderLayout.SOUTH);
 
-		    add(scp);
+			add(scp);
 
-		    pack();
-
-		
+			pack();
 
 			setVisible(true);
-
-			
-
-			
 
 		}
 
 	}
 
-	
-
 	public static void main(String[] args) {
 
 		new mygui();
 
- 
-
 	}
 
- 
-
 }
-

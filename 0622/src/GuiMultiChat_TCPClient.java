@@ -16,4 +16,3 @@ public class GuiMultiChat_TCPClient {
 			sender.start();
 			receiver.start();
 		}catch(ConnectException ce){
-		
